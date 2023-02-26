@@ -18,7 +18,7 @@ const NavBar = () => {
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
                     <div className="form-control">
-                        <input type="text" placeholder="Search images here" className="input input-bordered h-[43px] w-[419px] ml-16 mr-[27px]" />
+                        <input type="search" placeholder="Search images here" className="input input-bordered h-[43px] w-[419px] ml-16 mr-[27px]" />
                     </div>
                     {menu}
                 </ul>

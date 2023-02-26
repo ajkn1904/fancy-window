@@ -1,12 +1,12 @@
 import React from 'react';
 import { SlLike } from 'react-icons/sl'
 
-const ImageCard = ({ imgInfo }) => {
-    console.log(imgInfo)
-    const { id, likes, urls, user } = imgInfo
+const ImageCard = ({ imgInfo, handleDetailModal }) => {
+    //console.log(imgInfo)
+    const { likes, urls, user } = imgInfo
 
     return (
-        <div className='card border rounded-lg m-2 md:mx-[18px] md:my-4'>
+        <label className='card border rounded-lg m-2 md:mx-[18px] md:my-4' htmlFor="details-modal" onClick={() => handleDetailModal(imgInfo)}>
             <img src={urls.thumb} alt="" className='max-h-[500px] rounded-t-lg'/>
             <div className='flex justify-between h-[38.01px] md:h-[59px] mr-[9.25px] md:mr-4'>
                 <div className='flex items-center mx-[5.16px] my-[8.93px] md:m-[10px] gap-[5.16px] md:gap-[10px]'>
@@ -30,7 +30,7 @@ const ImageCard = ({ imgInfo }) => {
                 </div>
 
             </div>
-        </div>
+        </label>
     );
 };
 

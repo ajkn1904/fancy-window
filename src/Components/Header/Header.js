@@ -11,7 +11,7 @@ const Header = () => {
             <p className='w-[219px] md:w-[416px] h-6 md:h-[17px] font-medium text-[10px] md:text-sm text-[#C4C4C4] pt-[10px] md:pt-[17px] pb-[23px] md:pb-4'>Over 2.4 million+ stock Images by our talented community</p>
             
             <div className="form-control mt-[23px] md:mt-4">
-                <input type="text" placeholder="Search high resolution Images, categories, wallpapers" className="input input-bordered h-10 w-[325px] md:w-[808px] md:h-[54px] bg-[#FFFFFF]" />
+                <input type="search" placeholder="Search high resolution Images, categories, wallpapers" className="input input-bordered h-10 w-[325px] md:w-[808px] md:h-[54px] bg-[#FFFFFF]" />
             </div>
 
         </div>
