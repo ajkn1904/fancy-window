@@ -14,13 +14,13 @@ const Modal = ({ modalData }) => {
         <div className=''>
             <input type="checkbox" id="details-modal" className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box relative w-[388.08px] md:w-[945px] mx-auto p-0">
-                    <label htmlFor="details-modal" className="btn btn-sm btn-circle absolute right-0 top-0 bg-white text-black hover:bg-white">✕</label>
+                <div className="relative w-[388.08px] md:w-[650px] lg:w-[945px] mx-auto bg-white dark:bg-[#232323] rounded-lg">
+                    <label htmlFor="details-modal" className="btn btn-sm btn-circle absolute -right-2 -top-2 bg-white text-black hover:bg-white">✕</label>
 
                     <img src={urls?.full} alt="" className='rounded-t-lg w-full h-[402.03px] md:h-[482.98px]' />
 
 
-                    <div className='flex justify-between items-center ml-[21.16px] mr-[21.34px] mt-[20.86px] mb-[19.54px] md:mb-6 md:m-[25px] gap-5'>
+                    <div className='flex justify-between items-center ml-[21.16px] mr-[21.34px] mt-[20.86px] md:m-[25px] gap-5'>
                         <div className='flex flex-col md:flex-row items-start md:items-center'>
                             <div className='flex items-center gap-[8.31px] md:gap-[10px]'>
 
@@ -37,18 +37,18 @@ const Modal = ({ modalData }) => {
                                 </div>
                             </div>
 
-                            
-                            
+
+
                             <div className='flex gap-[9.97px] md:gap-3 ml-[21.56px] mt-[12.52px] md:mt-0'>
                                 <div>
                                     <IoLogoInstagram className='w-3 md:w-4 h-3 md:h-4 text-[#A7A7A7]' />
-                                    <p className='italic text-[#A7A7A7] font-semibold text-[9.96992px] md:text-xs'>{user?.social?.instagram_username}</p>
+                                    <p className='italic text-[#A7A7A7] font-semibold text-[9.96992px] md:text-xs'>/{user?.social?.instagram_username}</p>
                                 </div>
 
 
                                 <div>
                                     <CiTwitter className='w-3 md:w-4 h-3 md:h-4 text-[#A7A7A7]' />
-                                    <p className='italic text-[#A7A7A7] font-semibold text-[9.96992px] md:text-xs'>{user?.social?.twitter_username}</p>
+                                    <p className='italic text-[#A7A7A7] font-semibold text-[9.96992px] md:text-xs'>/{user?.social?.twitter_username}</p>
                                 </div>
                             </div>
 
@@ -66,7 +66,32 @@ const Modal = ({ modalData }) => {
                                 <p className='font-bold text-[8.35819px] md:text-[15px] text-[#858484]'>{likes}k</p>
                             </div>
                         </div>
+
+
+
+
                     </div>
+                        {
+                            modalData?.tags &&
+                           <>
+                           <h3 classNAme='font-bold text-[9.96992px] md:text-[12px] text-[#4F4F4F] dark:text-[#E5E5E5] mt-[21.82px] md:mt-[33px]'>Related Tags</h3>
+                                <div className='flex flex-wrap gap-[9.97px] md:gap-3 ml-[21.16px] mr-[21.34px] mb-[19.54px] md:mb-6'>
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.category?.pretty_slug}</label>
+                                    
+                                   
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.subcategory?.pretty_slug}</label>
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.ancestry?.subcategory?.pretty_slug}</label>
+
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.cover_photo?.alt_description}</label>
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.cover_photo?.alt_description}</label>
+                                    
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.title}</label>
+                                    
+                                    
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[2]?.title}</label>
+                                </div>
+                                </>
+                        }
 
 
                 </div>

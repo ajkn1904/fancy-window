@@ -3,10 +3,10 @@ import ImageCard from '../ImageCard/ImageCard';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import Modal from '../Modal/Modal';
 
-const Gallery = ({ getImages }) => {
-    //console.log(getImages);
+const Gallery = ({ getData, getSearchedData, isSearching, modalData, setModalData }) => {
+    //console.log(getData);
 
-    const [modalData, setModalData] = useState([])
+    //const [modalData, setModalData] = useState([])
 
 
     const handleDetailModal = data => {
@@ -21,16 +21,20 @@ const Gallery = ({ getImages }) => {
 
                 <Masonry>
 
-                    {
-                        getImages?.map(imgInfo => <ImageCard imgInfo={imgInfo} key={imgInfo.id}handleDetailModal={handleDetailModal}></ImageCard>)
+                    {(isSearching && getSearchedData) ?
+
+                        getSearchedData.map(imgInfo => <ImageCard imgInfo={imgInfo} key={imgInfo.id} handleDetailModal={handleDetailModal}></ImageCard>)
+
+                        :
+                        getData?.map(imgInfo => <ImageCard imgInfo={imgInfo} key={imgInfo.id} handleDetailModal={handleDetailModal}></ImageCard>)
                     }
-                    
+
                 </Masonry>
 
             </ResponsiveMasonry>
 
             {modalData &&
-                <Modal modalData={modalData}/>
+                <Modal modalData={modalData} />
             }
 
         </div>
