@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_ACCESS_KEY}`)
+    fetch('https://api.unsplash.com/photos?client_id=iZyFYY3HRPAZLsufCJaGdP3OyzNpqtYwyHyU54bUz3I')
       .then(res => res.json())
       .then(data => {
         setGetData(data);
@@ -40,7 +40,7 @@ function App() {
 
 
 
-  const url = `https://api.unsplash.com/search/photos?page=1&2&query=${searched}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+  const url = `https://api.unsplash.com/search/photos?page=1&2&query=${searched}&client_id=iZyFYY3HRPAZLsufCJaGdP3OyzNpqtYwyHyU54bUz3I`
 
   useEffect(() => {
     setIsLoading(true);
