@@ -6,7 +6,6 @@ import { HiOutlineShare } from 'react-icons/hi';
 import { BsInfoCircle } from 'react-icons/bs';
 
 const Modal = ({ modalData, theme }) => {
-    //console.log(modalData)
 
     const { urls, likes, user } = modalData
 
@@ -26,11 +25,11 @@ const Modal = ({ modalData, theme }) => {
 
                     <div className='flex items-center gap-2 relative left-[230px] -top-[55px] md:left-[500px] lg:left-[20px]'>
                         <div className='flex justify-center items-center gap-2 border border-white rounded-lg p-2'>
-                            <HiOutlineShare className='text-white h-3'/>
+                            <HiOutlineShare className='text-white h-3' />
                             <p className='text-white text-[8.23529px]'>Share</p>
                         </div>
                         <div className='flex justify-center items-center gap-2 border border-white rounded-lg p-2'>
-                            <BsInfoCircle className='text-white h-3'  />
+                            <BsInfoCircle className='text-white h-3' />
                             <p className='text-white text-[8.23529px]'>Info</p>
                         </div>
                     </div>
@@ -91,21 +90,30 @@ const Modal = ({ modalData, theme }) => {
                     {
                         modalData?.tags &&
                         <>
-                            <h3 className={`font-bold text-[9.96992px] md:text-[12px] ${theme === 'light' ? 'text-[#4F4F4F]' : 'text-[#E5E5E5]'} mt-[21.82px] md:mt-[33px]`}>Related Tags</h3>
+                            <h3 className={`text-start ml-5 mb-2 font-bold text-[9.96992px] md:text-[12px] ${theme === 'light' ? 'text-[#4F4F4F]' : 'text-[#E5E5E5]'} mt-[21.82px] md:mt-[33px]`}>Related Tags</h3>
                             <div className='flex flex-wrap gap-[9.97px] md:gap-3 ml-[21.16px] mr-[21.34px] mb-[19.54px] md:mb-6'>
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.category?.pretty_slug}</label>
-
-
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.subcategory?.pretty_slug}</label>
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.ancestry?.subcategory?.pretty_slug}</label>
-
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.cover_photo?.alt_description}</label>
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.cover_photo?.alt_description}</label>
-
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.title}</label>
-
-
-                                <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[2]?.title}</label>
+                                {modalData.tags[0].source?.ancestry?.category?.pretty_slug &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.category?.pretty_slug}</label>
+                                }
+                                {
+                                    modalData.tags[0].source?.ancestry?.subcategory?.pretty_slug &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.ancestry?.subcategory?.pretty_slug}</label>
+                                }
+                                {modalData.tags[1].source?.ancestry?.subcategory?.pretty_slug &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.ancestry?.subcategory?.pretty_slug}</label>
+                                }
+                                {modalData.tags[0].source?.cover_photo?.alt_description &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[0].source?.cover_photo?.alt_description}</label>
+                                }
+                                {modalData.tags[1].source?.cover_photo?.alt_description &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.cover_photo?.alt_description}</label>
+                                }
+                                {modalData.tags[1].source?.title &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[1].source?.title}</label>
+                                }
+                                {modalData.tags[2]?.title &&
+                                    <label className='label font-medium text-[8.30827px] md:text-[10px] text-[#4F4F4F] bg-[#ECECEC] rounded h-[23.26px] md:h-[28px] my-[3.325px]'>{modalData.tags[2]?.title}</label>
+                                }
                             </div>
                         </>
                     }

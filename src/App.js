@@ -5,7 +5,6 @@ import Header from './Components/Header/Header';
 import Gallery from './Components/Gallery/Gallery';
 import loaderImage from '../src/images/loading_image.png'
 import axios from 'axios';
-import { useColorMode } from 'daisyui';
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
   const [isFromNav, setIsFromNav] = useState(false)
   const [hideBanner, setHideBanner] = useState(false)
   const [theme, setTheme] = useState('light');
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
 
 
@@ -41,7 +39,6 @@ function App() {
   }, []);
 
 
-  //console.log(searched)
 
   const url = `https://api.unsplash.com/search/photos?page=1&2&query=${searched}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
 
@@ -50,7 +47,6 @@ function App() {
     axios
       .get(url)
       .then(res => {
-        //console.log(res.data)
         if (isSearching) {
           setGetSearchedData(res.data.results);
           setIsLoading(false);
@@ -59,18 +55,6 @@ function App() {
       .catch(error => console.log(error))
   }, [url, isSearching, modalData]);
 
-  /*   useEffect(() => {
-      setIsLoading(true);
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          if (isSearching) {
-            setGetSearchedData(data.results);
-            setIsLoading(false);
-          }
-        })
-    }, [url, isSearching]); */
 
 
   const handleResetSearch = () => {
@@ -97,7 +81,6 @@ function App() {
       matches = getSearchedData.map(data => { return (data.tags[0].title || data.tags[0].source?.title || data.tags[0]?.source?.ancestry?.category?.pretty_slug || data.tags[0]?.source?.ancestry?.subcategory?.pretty_slug || data.tags[1]?.source?.ancestry?.subcategory?.pretty_slug || data.tags[0]?.source?.cover_photo?.alt_description || data.tags[1]?.source?.cover_photo?.alt_description || data.tags[2]?.title) })
     }
     setSuggestions(matches)
-    console.log(matches)
     if (searchedInfo === '') {
       setIsSearching(false);
     }

@@ -2,7 +2,6 @@ import React from 'react';
 import { SlLike } from 'react-icons/sl'
 
 const ImageCard = ({ imgInfo, handleDetailModal }) => {
-    //console.log(imgInfo)
     const { likes, urls, user } = imgInfo
 
     return (
